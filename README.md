@@ -1,6 +1,6 @@
 # tp_laboratorio_1
 
-# Enunciado
+## Enunciado
 Hacer una calculadora. Para ello el programa iniciará y contará con un menú de opciones:
 1. Ingresar 1er operando (A=x)
 2. Ingresar 2do operando (B=y)
@@ -25,7 +25,7 @@ que contenga las funciones para realizar las cinco operaciones.
 • Documentar todas las funciones
 
 El programa consiste en una calculadora de dos numeros con menu que permite ingresar dos enteros y calcular simultaneamente las operaciones de suma, resta, division, multiplicacion y factoriales en los casos que sea posible.
-Aplicacion desarrollada para Eclipse IDE y Windows OS. El archivo ejecutable punto .exe se encuentra en tp_laboratorio_1/tp_laboratorio_1/Debug/tp_laboratorio_1.exe
+Aplicacion desarrollada para Eclipse IDE y Windows OS. El archivo ejecutable .exe se encuentra en tp_laboratorio_1/tp_laboratorio_1/Debug/tp_laboratorio_1.exe
 
 Alumno: Federico Dacal
 Division: A
