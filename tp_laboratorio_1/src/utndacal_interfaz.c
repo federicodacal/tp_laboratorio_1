@@ -3,6 +3,14 @@
 #include "utndacal_operaciones.h"
 #include "utndacal_validaciones.h"
 
+/** \brief resetFlags funcion que permite a un menu con tres flags poder reinicializarse luego de realizar determinada accion
+ *
+ * \param pFlag1 int* puntero de primer Flag
+ * \param pFlag2 int* puntero de segundo Flag
+ * \param pFlag3 int* puntero de tercer Flag
+ * \return int function_success=0 si la accion pudo desarrollarse exitosamente, function_success=-1 si la operacion fallo.
+ *
+ */
 int resetFlags(int* pFlag1, int* pFlag2, int* pFlag3)
 {
     int function_success=-1;
@@ -16,6 +24,15 @@ int resetFlags(int* pFlag1, int* pFlag2, int* pFlag3)
 }
 
 
+/** \brief menu funcion que genera una interfaz de menu para una calculadora de dos enteros que permite al usuario dirigirse a una de las opciones
+ *
+ * \param pFlag1 int* puntero de Flag1 que modifica el comportamiente del menu segun las opciones ingresadas
+ * \param pFlag2 int* puntero de Flag2 que modifica el comportamiente del menu segun las opciones ingresadas
+ * \param a int primer entero ingresado por el usuario
+ * \param b int segundo entero ingresado por el usuario
+ * \return int respuesta es la opcion seleccionada por el usuario
+ *
+ */
 int menu(int* pFlag1, int* pFlag2, int a, int b)
 {
     int respuesta;

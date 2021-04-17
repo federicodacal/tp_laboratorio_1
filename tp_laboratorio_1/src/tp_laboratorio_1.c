@@ -95,7 +95,15 @@ int main(void)
             break;
         case 4:
             if(flagOperaciones==1){
-                mostrarResultados(x,y,resultadoSuma,resultadoResta,resultadoDivision,resultadoMultiplicacion,factorialA,factorialB);
+                system("cls");
+                mostrarResultadoSuma(x,y,resultadoSuma);
+                mostrarResultadoResta(x,y,resultadoResta);
+                mostrarResultadoDivision(x,y,resultadoDivision);
+                mostrarResultadoMultiplicacion(x,y,resultadoMultiplicacion);
+                mostrarResultadoFactorial(x, factorialA);
+                mostrarResultadoFactorial(y, factorialB);
+                printf("\n\n");
+                system("pause");
                 resetFlags(&flagNum1,&flagNum2,&flagOperaciones);
             }
             else{
