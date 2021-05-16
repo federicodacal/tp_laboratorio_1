@@ -56,6 +56,15 @@ int idSectors[20]={500,504,501,501,502,503,502,504,502,500,500,504,501,501,502,5
 
 int ids[20]={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
 
+/** \brief Carga una lista predeterminada a lista de employees
+ *
+ * \param list[] Employee
+ * \param len int
+ * \param qty int
+ * \param pId int*
+ * \return int Lugares ocupados
+ *
+ */
 int hcodeEmployees(Employee list[], int len, int qty, int* pId)
 {
     int places=0;

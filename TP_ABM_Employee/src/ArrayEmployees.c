@@ -6,6 +6,14 @@
 #include "sector.h"
 #include "utn_validaciones.h"
 
+/** \brief To indicate that all position in the array are empty,
+ * this function put the flag (isEmpty) in TRUE in all
+ * position of the array
+ * \param list Employee* Pointer to array of employees
+ * \param len int Array length
+ * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
+ *
+ */
 int initEmployees(Employee list[], int len)
 {
     int response=-1;
@@ -19,6 +27,17 @@ int initEmployees(Employee list[], int len)
     return response;
 }
 
+
+/** \brief add in a existing list of employees the received employee in the first empty id position
+ *
+ * \param list[] Employee
+ * \param len int
+ * \param sectors[] Sector
+ * \param secLen int
+ * \param pId int*
+ * \return int -1 (Error) 0 (OK)
+ *
+ */
 int addEmployee(Employee list[], int len, Sector sectors[], int secLen, int* pId)
 {
     int response=-1;
@@ -54,6 +73,13 @@ int addEmployee(Employee list[], int len, Sector sectors[], int secLen, int* pId
     return response;
 }
 
+/** \brief Busca en la lista de empleados un indice disponible
+ *
+ * \param list[] Employee
+ * \param len int
+ * \return int -1 (Error) o indice disponible
+ *
+ */
 int findEmptyIndex(Employee list[], int len)
 {
     int index=-1;
@@ -68,6 +94,14 @@ int findEmptyIndex(Employee list[], int len)
     return index;
 }
 
+/** \brief Imprime en pantalla un employee y sus campos
+ *
+ * \param emp Employee
+ * \param sectors[] Sector
+ * \param secLen int
+ * \return int -1 (Error) 0 (Ok)
+ *
+ */
 int printEmployee(Employee emp, Sector sectors[], int secLen)
 {
     int response=-1;
@@ -89,6 +123,15 @@ int printEmployee(Employee emp, Sector sectors[], int secLen)
 }
 
 
+/** \brief Imprime en pantalla la lista de todos los employees cargados
+ *
+ * \param list[] Employee
+ * \param len int
+ * \param sectors[] Sector
+ * \param secLen int
+ * \return int -1 (Error) 0 (Ok)
+ *
+ */
 int printEmployees(Employee list[], int len, Sector sectors[], int secLen)
 {
     int response=-1;
@@ -112,6 +155,15 @@ int printEmployees(Employee list[], int len, Sector sectors[], int secLen)
     return response;
 }
 
+/** \brief find an Employee by Id en returns the index position in array.
+ *
+ * \param list Employee*
+ * \param len int
+ * \param id int
+ * \return Return employee index position or (-1) if [Invalid length or NULL
+pointer received or employee not found]
+ *
+ */
 int findEmployeeById(Employee list[], int len, int id)
 {
     int index=-1;
@@ -124,6 +176,15 @@ int findEmployeeById(Employee list[], int len, int id)
     return index;
 }
 
+/** \brief Remueve el employee seleccionado del array de manera logica
+ *
+ * \param list[] Employee
+ * \param len int
+ * \param sectors[] Sector
+ * \param secLen int
+ * \return int -1 (Error) 0 (Ok)
+ *
+ */
 int removeEmployee(Employee list[], int len, Sector sectors[], int secLen)
 {
     int response=-1;
@@ -154,6 +215,15 @@ int removeEmployee(Employee list[], int len, Sector sectors[], int secLen)
     return response;
 }
 
+/** \brief Actualiza los campos del employee
+ *
+ * \param list[] Employee
+ * \param len int
+ * \param sectors[] Sector
+ * \param secLen int
+ * \return int -1 (Error) 0 (Ok)
+ *
+ */
 int updateEmployee(Employee list[], int len, Sector sectors[], int secLen)
 {
     int response=-1;
@@ -212,6 +282,13 @@ int updateEmployee(Employee list[], int len, Sector sectors[], int secLen)
     return response;
 }
 
+/** \brief Calcula el salario total de los empleados
+ *
+ * \param list[] Employee
+ * \param len int
+ * \return int -1 (Error) 0 (OK)
+ *
+ */
 int getTotalSalaries(Employee list[], int len)
 {
     int response=-1;
@@ -229,6 +306,13 @@ int getTotalSalaries(Employee list[], int len)
     return response;
 }
 
+/** \brief Calcula el salario promedio entre todos los empleados
+ *
+ * \param list[] Employee
+ * \param len int
+ * \return int -1 (Error) 0 (Ok)
+ *
+ */
 int getAvgSalary(Employee list[], int len)
 {
     int response=-1;
@@ -248,6 +332,13 @@ int getAvgSalary(Employee list[], int len)
     return response;
 }
 
+/** \brief Encuentra la cantidad de empleados que tienen mayor salario que el salario promedio
+ *
+ * \param list[] Employee
+ * \param len int
+ * \return int -1 (Error) 0 (Ok)
+ *
+ */
 int getEmployeesAboveAvgSalary(Employee list[], int len)
 {
     int response=-1;
@@ -276,28 +367,32 @@ int getEmployeesAboveAvgSalary(Employee list[], int len)
     return response;
 }
 
+
+/** \brief Ordena los empleados en cada sector por apellido
+ *
+ * \param list[] Employee
+ * \param len int
+ * \param order int
+ * \return int -1 (Error) 0 (OK)
+ *
+ */
 int sortEmployeesLastName(Employee list[], int len, int order)
 {
     int response=-1;
     Employee auxEmp;
 
-    if(list!= NULL && len>0){
-        for(int i=0;i<len-1;i++){
+    if(list!=NULL && len>0){
+        for(int i=0; i<len-1;i++){
             for(int j=i+1;j<len;j++){
-                if(order && strcmp(list[i].lastName,list[j].lastName)>0){
+                if(order==1 && (list[i].idSector>list[j].idSector ||
+                  (list[i].idSector==list[j].idSector && strcmpi(list[i].lastName,list[j].lastName)>0))){
                     auxEmp=list[i];
                     list[i]=list[j];
                     list[j]=auxEmp;
                 }
-                else if(strcmp(list[j].lastName,list[i].lastName)<0 && !order){
-                    auxEmp=list[i];
-                    list[i]=list[j];
-                    list[j]=auxEmp;
-                }
+            response=0;
             }
         }
-        response=0;
     }
-
     return response;
 }

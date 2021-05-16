@@ -4,6 +4,15 @@
 #include "ArrayEmployees.h"
 #include "sector.h"
 
+/** \brief Permite cargar la descripcion del sector con el ID
+ *
+ * \param id int
+ * \param sectors[] Sector
+ * \param secLen int
+ * \param descrip[] char
+ * \return int 0 (Error) 1 (Ok)
+ *
+ */
 int cargarDescripcionSector(int id, Sector sectors[], int secLen, char descrip[])
 {
     int function_success=0;
@@ -21,6 +30,13 @@ int cargarDescripcionSector(int id, Sector sectors[], int secLen, char descrip[]
     return function_success;
 }
 
+/** \brief Imprime la lista de sectores
+ *
+ * \param sectors[] Sector
+ * \param secLen int
+ * \return int -1 (Error) 0 (Ok)
+ *
+ */
 int printSectors(Sector sectors[], int secLen)
 {
     int response=-1;
@@ -40,4 +56,3 @@ void printSector(Sector sec)
 {
     printf("        %d  %10s\n", sec.id, sec.description);
 }
-
