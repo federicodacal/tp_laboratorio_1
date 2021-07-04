@@ -1,0 +1,143 @@
+# depslib dependency file v1.0
+1625342896 source:c:\users\feder\documents\laboratorio_1_c\tp4\controller.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+	"utn_validaciones.h"
+	"parser.h"
+
+1625054572 c:\users\feder\documents\laboratorio_1_c\tp4\linkedlist.h
+
+1625339775 c:\users\feder\documents\laboratorio_1_c\tp4\employee.h
+	"LinkedList.h"
+
+1625339714 source:c:\users\feder\documents\laboratorio_1_c\tp4\employee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Employee.h"
+	"LinkedList.h"
+	"Controller.h"
+	"utn_validaciones.h"
+
+1625342704 source:c:\users\feder\documents\laboratorio_1_c\tp4\main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+	"menu.h"
+	"utn_validaciones.h"
+
+1625343054 c:\users\feder\documents\laboratorio_1_c\tp4\controller.h
+
+1625341296 source:c:\users\feder\documents\laboratorio_1_c\tp4\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+	"parser.h"
+
+1625318444 source:c:\users\feder\documents\laboratorio_1_c\tp4\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1625328629 source:c:\users\feder\documents\laboratorio_1_c\tp4\menu.c
+	<stdio.h>
+	<stdlib.h>
+	"menu.h"
+	"utn_validaciones.h"
+
+1625335681 source:c:\users\feder\documents\laboratorio_1_c\tp4\utn_validaciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"utn_validaciones.h"
+
+1625329875 c:\users\feder\documents\laboratorio_1_c\tp4\utn_validaciones.h
+
+1625318808 c:\users\feder\documents\laboratorio_1_c\tp4\menu.h
+
+1625321930 c:\users\feder\documents\laboratorio_1_c\tp4\parser.h
+
+1625365244 source:c:\users\feder\documents\tp_laboratorio_1\tp_laboratorio_1\tp4_codeblocks\controller.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+	"utn_validaciones.h"
+	"parser.h"
+
+1625054572 c:\users\feder\documents\tp_laboratorio_1\tp_laboratorio_1\tp4_codeblocks\linkedlist.h
+
+1625362973 c:\users\feder\documents\tp_laboratorio_1\tp_laboratorio_1\tp4_codeblocks\employee.h
+	"LinkedList.h"
+
+1625329875 c:\users\feder\documents\tp_laboratorio_1\tp_laboratorio_1\tp4_codeblocks\utn_validaciones.h
+
+1625321930 c:\users\feder\documents\tp_laboratorio_1\tp_laboratorio_1\tp4_codeblocks\parser.h
+
+1625363031 source:c:\users\feder\documents\tp_laboratorio_1\tp_laboratorio_1\tp4_codeblocks\employee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Employee.h"
+	"LinkedList.h"
+	"Controller.h"
+	"utn_validaciones.h"
+
+1625343054 c:\users\feder\documents\tp_laboratorio_1\tp_laboratorio_1\tp4_codeblocks\controller.h
+
+1625318444 source:c:\users\feder\documents\tp_laboratorio_1\tp_laboratorio_1\tp4_codeblocks\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1625341296 source:c:\users\feder\documents\tp_laboratorio_1\tp_laboratorio_1\tp4_codeblocks\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+	"parser.h"
+
+1625335681 source:c:\users\feder\documents\tp_laboratorio_1\tp_laboratorio_1\tp4_codeblocks\utn_validaciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"utn_validaciones.h"
+
+1625364552 source:c:\users\feder\documents\tp_laboratorio_1\tp_laboratorio_1\tp4_codeblocks\main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+	"menu.h"
+	"pruebas.h"
+	"utn_validaciones.h"
+
+1625346508 c:\users\feder\documents\tp_laboratorio_1\tp_laboratorio_1\tp4_codeblocks\menu.h
+
+1625364341 source:c:\users\feder\documents\tp_laboratorio_1\tp_laboratorio_1\tp4_codeblocks\menu.c
+	<stdio.h>
+	<stdlib.h>
+	"menu.h"
+	"utn_validaciones.h"
+
+1625364269 source:c:\users\feder\documents\tp_laboratorio_1\tp_laboratorio_1\tp4_codeblocks\pruebas.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+	"pruebas.h"
+	"utn_validaciones.h"
+	"Employee.h"
+
+1625364577 c:\users\feder\documents\tp_laboratorio_1\tp_laboratorio_1\tp4_codeblocks\pruebas.h
+
