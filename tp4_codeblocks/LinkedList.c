@@ -464,18 +464,21 @@ int ll_sort(LinkedList* this, int (*pFunc)(void* ,void*), int order)
                 if((pFunc(auxI,auxJ)>0 && order) || (pFunc(auxI,auxJ)<0 && !order)){
                     ll_set(this,i,auxJ);
                     ll_set(this,j,auxI);
-
-
-
                 }
             }
         }
+        returnAux=0;
     }
-
     return returnAux;
-
 }
 
+/** \brief Devuelve un nuevo LinkedList cargado con los elementos que pasan la funcion filtro
+ *
+ * \param LinkedList* this LinkedList a filtrar
+ * \param int (*pFunc) (void*) Puntero a funcion filtro
+ * \return nuevo puntero a LinkedList
+ *
+ */
 LinkedList* ll_filter(LinkedList* this, int(*pFunc)(void*))
 {
     LinkedList* filterList=NULL;
