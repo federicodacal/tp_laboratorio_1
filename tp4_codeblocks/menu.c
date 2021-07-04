@@ -3,6 +3,11 @@
 #include "menu.h"
 #include "utn_validaciones.h"
 
+/** \brief Interfaz menu para ABM
+ *
+ * \return int -1 (Error) o Opcion elegida (Exito)
+ *
+ */
 int menu()
 {
     int response=-1;;
@@ -31,6 +36,11 @@ int menu()
     return response;
 }
 
+/** \brief Interfaz submenu de pruebas
+ *
+ * \return int -1 (Error) o Opcion elegida (Exito)
+ *
+ */
 int submenuPruebas()
 {
     int response=-1;

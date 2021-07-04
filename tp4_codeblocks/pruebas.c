@@ -6,6 +6,12 @@
 #include "utn_validaciones.h"
 #include "Employee.h"
 
+/** \brief Funcion de testing para ll_push, se ingresa un ID activo y se realiza el push usando el index
+ *
+ * \param pArrayListEmployee LinkedList*
+ * \return int -1 (Error) o 0 Exito
+ *
+ */
 int prueba_llpush(LinkedList* pArrayListEmployee)
 {
     int response=-1;
@@ -31,6 +37,12 @@ int prueba_llpush(LinkedList* pArrayListEmployee)
     return response;
 }
 
+/** \brief Funcion de testing para ll_set, se ingresa un ID activo y se realiza el set usando el index
+ *
+ * \param pArrayListEmployee LinkedList*
+ * \return int -1 (Error) o 0 Exito
+ *
+ */
 int prueba_llset(LinkedList* pArrayListEmployee)
 {
     int response=-1;
@@ -56,6 +68,12 @@ int prueba_llset(LinkedList* pArrayListEmployee)
     return response;
 }
 
+/** \brief Funcion de testing para ll_pop, se ingresa un ID activo y se realiza el pop usando el index (se elimina posicion)
+ *
+ * \param pArrayListEmployee LinkedList*
+ * \return int -1 (Error) o 0 Exito
+ *
+ */
 int prueba_llpop(LinkedList* pArrayListEmployee)
 {
     int response=-1;
@@ -72,6 +90,12 @@ int prueba_llpop(LinkedList* pArrayListEmployee)
     return response;
 }
 
+/** \brief Funcion de testing para ll_indexOf, se ingresa un ID activo y se verifica el index
+ *
+ * \param pArrayListEmployee LinkedList*
+ * \return int -1 (Error) o 0 Exito
+ *
+ */
 int prueba_llindexOf(LinkedList* pArrayListEmployee)
 {
     int response=-1;
@@ -95,6 +119,12 @@ int prueba_llindexOf(LinkedList* pArrayListEmployee)
     return response;
 }
 
+/** \brief Funcion de testing para ll_contains, se verifica si un empleado pertenece a la lista
+ *
+ * \param pArrayListEmployee LinkedList*
+ * \return int -1 (Error) o 0 Exito
+ *
+ */
 int prueba_llcontains(LinkedList* pArrayListEmployee)
 {
     int response=-1;
@@ -129,12 +159,15 @@ int prueba_llcontains(LinkedList* pArrayListEmployee)
 
         response=0;
     }
-
-
     return response;
-
 }
 
+/** \brief Funcion de testing para ll_containsAll, ll_sublist, ll_clone, ll_clear, ll_deleteLinkedList, se realiza una demostracion paso a paso de las distintas funciones ll nombradas y su comprobacion
+ *
+ * \param pArrayListEmployee LinkedList*
+ * \return int -1 (Error) o 0 Exito
+ *
+ */
 int prueba_llfunctions(LinkedList* pArrayListEmployee)
 {
     int response=-1;
@@ -179,6 +212,12 @@ int prueba_llfunctions(LinkedList* pArrayListEmployee)
     return response;
 }
 
+/** \brief Funcion de testing para ll_isEmpty, se verifica si la lista contiene elementos
+ *
+ * \param pArrayListEmployee LinkedList*
+ * \return int
+ *
+ */
 int prueba_llisEmpty(LinkedList* pArrayListEmployee)
 {
     int response=-1;

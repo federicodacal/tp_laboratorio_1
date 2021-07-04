@@ -298,6 +298,7 @@ int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee)
     int response=-1;
     int cant;
     int len=ll_len(pArrayListEmployee);
+    Employee* auxEmp;
     FILE* f;
 
     if(pArrayListEmployee!= NULL && path != NULL ){
@@ -307,14 +308,18 @@ int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee)
         }
         else{
 			for(int i=0;i<len;i++){
-				cant=fwrite(ll_get(pArrayListEmployee,i),sizeof(Employee),1,f);
-				if(cant<1){
-					response=0;
-				}
+                auxEmp=(Employee*)ll_get(pArrayListEmployee,i);
+                if(auxEmp!=NULL){
+                    cant=fwrite(ll_get(pArrayListEmployee,i),sizeof(Employee),1,f);
+                    if(cant<1){
+                        response=1;
+                        break;
+                    }
+                    response=0;
+                }
 			}
         }
         fclose(f);
     }
     return response;
 }
-

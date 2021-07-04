@@ -6,6 +6,11 @@
 #include "Controller.h"
 #include "utn_validaciones.h"
 
+/** \brief Constructor de nuevo empleado
+ *
+ * \return Employee* devuelve el nuevo empleado
+ *
+ */
 Employee* employee_new()
 {
 	Employee* newEmp=(Employee*)malloc(sizeof(Employee));
@@ -19,6 +24,15 @@ Employee* employee_new()
     return newEmp;
 }
 
+/** \brief Crea un nuevo empleado a partir de su constructor y carga sus campos con los datos ingresados
+ *
+ * \param idStr char*
+ * \param nombreStr char*
+ * \param horasTrabajadasStr char*
+ * \param sueldoStr char*
+ * \return Employee* nuevo empleado creado
+ *
+ */
 Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajadasStr,char* sueldoStr)
 {
 	Employee* newEmp=employee_new();
@@ -37,6 +51,12 @@ Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajad
     return newEmp;
 }
 
+/** \brief Elimina empleado y libera espacio
+ *
+ * \param this Employee*
+ * \return void
+ *
+ */
 void employee_delete(Employee* this)
 {
 	if(this!=NULL){
@@ -133,6 +153,12 @@ int employee_getSueldo(Employee* this,float* sueldo)
     return response;
 }
 
+/** \brief Imprimir un empleado con sus campos
+ *
+ * \param pEmp Employee*
+ * \return int -1 (Error) o 0 (Exito)
+ *
+ */
 int employee_printEmployee(Employee* pEmp)
 {
     int response=-1;
@@ -153,6 +179,13 @@ int employee_printEmployee(Employee* pEmp)
     return response;
 }
 
+/** \brief Busca un elemento en la lista por campo ID
+ *
+ * \param pArrayListEmployee LinkedList*
+ * \param id int
+ * \return int -1 (Error) o i (indice encontrado si pudo hallarlo)
+ *
+ */
 int employee_findById(LinkedList* pArrayListEmployee,int id)
 {
 	int response=-1;
@@ -172,6 +205,13 @@ int employee_findById(LinkedList* pArrayListEmployee,int id)
 	return response;
 }
 
+/** \brief Elimina el index y remueve el empleado de la lista
+ *
+ * \param pArrayListEmployee LinkedList*
+ * \param index int
+ * \return int -1 (Error) o (Exito)
+ *
+ */
 int employee_deleteIndex(LinkedList* pArrayListEmployee, int index)
 {
     int response=-1;
@@ -189,6 +229,13 @@ int employee_deleteIndex(LinkedList* pArrayListEmployee, int index)
     return response;
 }
 
+/** \brief Comparar el campo id de dos elementos
+ *
+ * \param emp1 void*
+ * \param emp2 void*
+ * \return int 0 (Error) -1 (emp1 menor id a emp2) 1 (emp1 mayor sueldo a emp2)
+ *
+ */
 int employee_cmpId(void* emp1, void* emp2)
 {
 	int response=0;
@@ -209,6 +256,13 @@ int employee_cmpId(void* emp1, void* emp2)
 	return response;
 }
 
+/** \brief Comparar el campo nombre de dos elementos
+ *
+ * \param emp1 void*
+ * \param emp2 void*
+ * \return int el resultado devuelto por la funcion strcmp
+ *
+ */
 int employee_cmpNombre(void* emp1, void* emp2)
 {
 	int response;
@@ -224,6 +278,13 @@ int employee_cmpNombre(void* emp1, void* emp2)
 	return response;
 }
 
+/** \brief Comparar el campo sueldo de dos elementos
+ *
+ * \param emp1 void*
+ * \param emp2 void*
+ * \return int 0 (Error) -1 (emp1 mayor sueldo a emp2) 1 (emp1 menor sueldo a emp2)
+ *
+ */
 int employee_cmpSueldo(void* emp1, void* emp2)
 {
 	int response=0;
@@ -244,6 +305,13 @@ int employee_cmpSueldo(void* emp1, void* emp2)
 	return response;
 }
 
+/** \brief Comparar el campo horas trabajadas de dos elementos
+ *
+ * \param emp1 void*
+ * \param emp2 void*
+ * \return int 0 (Error) -1 (emp1 menor horas a emp2) 1 (emp1 mayor horas a emp2)
+ *
+ */
 int employee_cmpHoras(void* emp1, void* emp2)
 {
 	int response=0;
@@ -264,6 +332,13 @@ int employee_cmpHoras(void* emp1, void* emp2)
 	return response;
 }
 
+/** \brief Permite encontrar el siguiente ID a ser utilizado, recorre un array de elementos y obtiene el mayor ID
+ *
+ * \param lista LinkedList*
+ * \param id int*
+ * \return int -1 (Error) o 0 (Exito)
+ *
+ */
 int employee_findNextId(LinkedList* lista, int* id)
 {
     int todoOk=-1;
@@ -283,6 +358,13 @@ int employee_findNextId(LinkedList* lista, int* id)
     return todoOk;
 }
 
+/** \brief Despliega un menu de opciones para editar y modificar los campos de un empleado seleccionado
+ *
+ * \param pArrayListEmployee LinkedList*
+ * \param index int
+ * \return int -1 (Error) o 0 (Exito)
+ *
+ */
 int employee_updateEmployee(LinkedList* pArrayListEmployee, int index)
 {
 	int response=-1;
@@ -325,12 +407,19 @@ int employee_updateEmployee(LinkedList* pArrayListEmployee, int index)
                         }
                         break;
                 }
+                response=0;
             }
          }while(option!=4);
     }
     return response;
 }
 
+/** \brief Recorre un array lista e imprime sus elementos (empleados)
+ *
+ * \param lista LinkedList*
+ * \return int -1 (Error) o 0 (Exito)
+ *
+ */
 int mostrarEmpleados(LinkedList* lista)
 {
     int response=-1;
