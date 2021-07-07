@@ -39,4 +39,7 @@ int employee_cmpSueldo(void* emp1, void* emp2);
 int employee_cmpHoras(void* emp1, void* emp2);
 
 int mostrarEmpleados(LinkedList* lista);
+
+int employee_readLastId();
+int employee_saveLastId(int* id);
 #endif // employee_H_INCLUDED

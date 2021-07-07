@@ -11,7 +11,7 @@
  * \return int
  *
  */
-int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
+int parser_EmployeeFromText(FILE* pFile, LinkedList* pArrayListEmployee)
 {
     int response=-1;
     Employee* auxEmp=NULL;

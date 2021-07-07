@@ -171,20 +171,22 @@ int prueba_llcontains(LinkedList* pArrayListEmployee)
 int prueba_llfunctions(LinkedList* pArrayListEmployee)
 {
     int response=-1;
-    LinkedList* listaPrueba=ll_newLinkedList();
-    LinkedList* listaClon=ll_newLinkedList();
-    if(listaPrueba==NULL){
-		printf("Ocurrio un error al intentar crear LinkedList\n");
-		system("pause");
-		exit(1);
-    }
-    if(pArrayListEmployee!=NULL && listaPrueba!=NULL && listaClon!=NULL){
+    LinkedList* listaPrueba=NULL;
+    LinkedList* listaClon=NULL;
+
+    if(pArrayListEmployee!=NULL){
         printf("Se genera una nueva LinkedList y se verifica que esta vacia\n");
+        listaPrueba=ll_newLinkedList();
+        if(listaPrueba==NULL){
+            printf("Ocurrio un problema creando LinkedList\n");
+            system("pause");
+            exit(1);
+        }
         if(ll_isEmpty(listaPrueba)){
             printf("La lista de prueba no contiene elementos\n");
         }
         printf("\nSe le asignan elementos de la lista principal a la lista de prueba generando una sublista\n");
-        listaPrueba=ll_subList(pArrayListEmployee,25,40);
+        listaPrueba=ll_subList(pArrayListEmployee,25,35);
         mostrarEmpleados(listaPrueba);
         printf("\nSe comprueba que la lista principal contiene los elementos de la lista de prueba\n");
         if(ll_containsAll(pArrayListEmployee,listaPrueba)){

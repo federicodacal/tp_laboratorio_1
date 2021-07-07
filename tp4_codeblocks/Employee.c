@@ -358,6 +358,7 @@ int employee_findNextId(LinkedList* lista, int* id)
     return todoOk;
 }
 
+
 /** \brief Despliega un menu de opciones para editar y modificar los campos de un empleado seleccionado
  *
  * \param pArrayListEmployee LinkedList*
@@ -432,5 +433,35 @@ int mostrarEmpleados(LinkedList* lista)
         }
         response=0;
     }
+    return response;
+}
+
+int employee_saveLastId(int* id)
+{
+    int response=-1;
+    FILE* f=fopen("lastId.txt","w");
+    if(f!=NULL){
+        fprintf(f,"%d",*id);
+            response=0;
+    }
+    fclose(f);
+    return response;
+}
+
+int employee_readLastId()
+{
+    int response=-1;
+    int cant;
+    char auxCad[10];
+    int auxId;
+    FILE* f=fopen("lastId.txt","r");
+    if(f!=NULL){
+        cant=fscanf(f,"%s",auxCad);
+        if(cant){
+            auxId=atoi(auxCad);
+            response=auxId;
+        }
+    }
+    fclose(f);
     return response;
 }

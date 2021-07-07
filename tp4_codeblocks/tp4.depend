@@ -64,7 +64,7 @@
 
 1625321930 c:\users\feder\documents\laboratorio_1_c\tp4\parser.h
 
-1625365244 source:c:\users\feder\documents\tp_laboratorio_1\tp_laboratorio_1\tp4_codeblocks\controller.c
+1625595688 source:c:\users\feder\documents\tp_laboratorio_1\tp_laboratorio_1\tp4_codeblocks\controller.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
@@ -74,14 +74,14 @@
 
 1625054572 c:\users\feder\documents\tp_laboratorio_1\tp_laboratorio_1\tp4_codeblocks\linkedlist.h
 
-1625362973 c:\users\feder\documents\tp_laboratorio_1\tp_laboratorio_1\tp4_codeblocks\employee.h
+1625532502 c:\users\feder\documents\tp_laboratorio_1\tp_laboratorio_1\tp4_codeblocks\employee.h
 	"LinkedList.h"
 
 1625329875 c:\users\feder\documents\tp_laboratorio_1\tp_laboratorio_1\tp4_codeblocks\utn_validaciones.h
 
 1625321930 c:\users\feder\documents\tp_laboratorio_1\tp_laboratorio_1\tp4_codeblocks\parser.h
 
-1625363031 source:c:\users\feder\documents\tp_laboratorio_1\tp_laboratorio_1\tp4_codeblocks\employee.c
+1625532592 source:c:\users\feder\documents\tp_laboratorio_1\tp_laboratorio_1\tp4_codeblocks\employee.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -90,15 +90,15 @@
 	"Controller.h"
 	"utn_validaciones.h"
 
-1625343054 c:\users\feder\documents\tp_laboratorio_1\tp_laboratorio_1\tp4_codeblocks\controller.h
+1625595369 c:\users\feder\documents\tp_laboratorio_1\tp_laboratorio_1\tp4_codeblocks\controller.h
 
-1625318444 source:c:\users\feder\documents\tp_laboratorio_1\tp_laboratorio_1\tp4_codeblocks\linkedlist.c
+1625439651 source:c:\users\feder\documents\tp_laboratorio_1\tp_laboratorio_1\tp4_codeblocks\linkedlist.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"LinkedList.h"
 
-1625341296 source:c:\users\feder\documents\tp_laboratorio_1\tp_laboratorio_1\tp4_codeblocks\parser.c
+1625518889 source:c:\users\feder\documents\tp_laboratorio_1\tp_laboratorio_1\tp4_codeblocks\parser.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
@@ -112,7 +112,7 @@
 	<ctype.h>
 	"utn_validaciones.h"
 
-1625364552 source:c:\users\feder\documents\tp_laboratorio_1\tp_laboratorio_1\tp4_codeblocks\main.c
+1625620090 source:c:\users\feder\documents\tp_laboratorio_1\tp_laboratorio_1\tp4_codeblocks\main.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
@@ -124,13 +124,13 @@
 
 1625346508 c:\users\feder\documents\tp_laboratorio_1\tp_laboratorio_1\tp4_codeblocks\menu.h
 
-1625364341 source:c:\users\feder\documents\tp_laboratorio_1\tp_laboratorio_1\tp4_codeblocks\menu.c
+1625619645 source:c:\users\feder\documents\tp_laboratorio_1\tp_laboratorio_1\tp4_codeblocks\menu.c
 	<stdio.h>
 	<stdlib.h>
 	"menu.h"
 	"utn_validaciones.h"
 
-1625364269 source:c:\users\feder\documents\tp_laboratorio_1\tp_laboratorio_1\tp4_codeblocks\pruebas.c
+1625620254 source:c:\users\feder\documents\tp_laboratorio_1\tp_laboratorio_1\tp4_codeblocks\pruebas.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

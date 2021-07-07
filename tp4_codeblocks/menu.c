@@ -16,17 +16,18 @@ int menu()
     system("cls");
     printf("\n*****SISTEMA DE GESTION*****\n");
     printf("------------------------------------------\n");
-    printf("[1] Cargar los datos de los empleados desde el archivo data.csv\n");
-    printf("[2] Cargar los datos de los empleados desde el archivo data.bin\n");
+    printf("[1] Cargar los datos de los empleados desde el archivo .csv\n");
+    printf("[2] Cargar los datos de los empleados desde el archivo .bin\n");
     printf("[3] Alta de Empleado\n");
     printf("[4] Modificar Datos De Empleado\n");
     printf("[5] Baja de empleado\n");
     printf("[6] Listar Empleados\n");
     printf("[7] Ordenar Empleados\n");
-    printf("[8] Guardar los datos de los empleados en el archivo data.csv\n");
-    printf("[9] Guardar los datos de los empleados en el archivo data.bin\n");
+    printf("[8] Guardar los datos de los empleados en el archivo .csv\n");
+    printf("[9] Guardar los datos de los empleados en el archivo .bin\n");
+    printf("**************************************************************\n");
     printf("[10] SUBMENU PRUEBAS LinkedList\n");
-    printf("------------------------------------------\n");
+    printf("--------------------------------------------------------------\n");
     printf("[11] Salir\n");
 
     if(utn_getNumero(&optionAux,"\nIngrese opcion:\n","\nDato ingresado no valido.",1,11,5)==0){
@@ -48,7 +49,7 @@ int submenuPruebas()
 
     system("cls");
     printf("\n*****PRUEBAS LINKEDLIST*****\n");
-    printf("(las funciones ll_get, ll_sort, ll_add, ll_newLinkedList, ll_remove, ll_len fueron demostradas en el ABM)");
+    printf("(las funciones ll_get, ll_sort, ll_add, ll_newLinkedList, ll_remove, ll_len son demostradas en el ABM)\n");
     printf("------------------------------------------\n");
     printf("[1] ll_push \n");
     printf("[2] ll_set \n");

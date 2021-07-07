@@ -44,26 +44,29 @@ int controller_loadFromText(LinkedList* pArrayListEmployee)
  * \return int
  *
  */
-int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
+int controller_loadFromBinary(LinkedList* pArrayListEmployee)
 {
 	int response=-1;
+	char pathIngresado[128];
 	FILE* f=NULL;
 
-	if(path!=NULL && pArrayListEmployee!=NULL){
-		f=fopen(path,"rb");
-		if(f!=NULL){
-			if(!parser_EmployeeFromBinary(f, pArrayListEmployee)){
-				response=0;
-			}
-		}
-		else{
-			printf("Error al intentar abrir el archivo\n");
-			system("pause");
-			exit(1);
-		}
+	if(pArrayListEmployee!=NULL){
+        if(!utn_getDescripcion(pathIngresado, 128,"Ingrese el path del archivo .bin que desea cargar: \nSi no recuerda el path puede ingresar el archivo predeterminado data.bin\n","\nError. Dato ingresado no valido. Reingrese dato \n",5)){
+            f=fopen(pathIngresado,"rb");
+            if(f==NULL){
+                printf("No se encontro el archivo %s\n",pathIngresado);
+            }
+            else{
+                if(!parser_EmployeeFromBinary(f, pArrayListEmployee)){
+                    response=0;
+                }
+                else{
+                    printf("No se pudo abrir el archivo\n");
+                }
+            }
+        }
 	}
 	fclose(f);
-
     return response;
 }
 
@@ -78,24 +81,31 @@ int controller_addEmployee(LinkedList* pArrayListEmployee)
 {
     int response=-1;
     Employee* auxEmp=NULL;
+    int newId;
     char nombre[128];
     int horas;
     float sueldo;
-    int newId;
 
     if(pArrayListEmployee!=NULL){
+        //employee_findNextId(pArrayListEmployee,&newId);
+        newId=employee_readLastId();
+        printf("ID NUEVO EMPLEADO: %d\n",newId);
         if(!utn_getNombre(nombre,128,"Ingrese nombre empleado: \n","\nDato ingresado no es valido\n",5) &&
            !utn_getNumeroFlotante(&sueldo,"Ingrese sueldo: \n","\nDato ingresado no es valido\n",1,500000,5) &&
            !utn_getNumero(&horas,"Ingrese horas trabajadas: \n","\nDato ingresado no es valido\n",1,500,5)){
-
-               employee_findNextId(pArrayListEmployee,&newId);
                auxEmp=employee_new();
                if(!employee_setId(auxEmp,newId) &&
                   !employee_setNombre(auxEmp,nombre) &&
                   !employee_setHorasTrabajadas(auxEmp,horas) &&
                   !employee_setSueldo(auxEmp,sueldo)){
-                    ll_add(pArrayListEmployee,auxEmp);
-                    response=0;
+                    if(!ll_add(pArrayListEmployee,auxEmp)){
+                        newId++;
+                        employee_saveLastId(&newId);
+                        printf("Nuevo Empleado: \n");
+                        employee_printEmployee(auxEmp);
+                        printf("\n");
+                        response=0;
+                    }
                   }
                 else{
                     employee_delete(auxEmp);
@@ -125,9 +135,11 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
             if(index>=0){
                 if(!employee_updateEmployee(pArrayListEmployee,index)){
                     printf("Modificacion terminada\n");
-                    system("pause");
                     response=0;
                 }
+            }
+            else{
+                printf("No se encontro un empleado con el ID %d\n",auxId);
             }
         }
     }
@@ -158,14 +170,14 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
                printf("ID   Nombre  Sueldo  Horas\n");
                employee_printEmployee(auxEmp);
                if(!utn_getNumero(&option,"\n[1] Confimar Baja Empleado\n[2] Cancelar\n","\nDato no valido\n",1,2,5) && option==1){
-                    if(employee_deleteIndex(pArrayListEmployee,indexDelete)){
+                    if(!employee_deleteIndex(pArrayListEmployee,indexDelete)){
                         printf("Baja exitosa\n");
                         response=0;
                     }
-                    else{
-                        response=1;
-                    }
                }
+            }
+            else{
+                printf("No se encontro un empleado con el ID %d\n",auxId);
             }
         }
     }
@@ -252,36 +264,98 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
  * \return int
  *
  */
-int controller_saveAsText(char* path , LinkedList* pArrayListEmployee)
+int controller_saveAsText(LinkedList* pArrayListEmployee)
 {
-    int response=-1;
+//    int response=-1;
+//    char pathIngresado[128];
+//    int cant;
+//    int confirma=1;
+//    int len=ll_len(pArrayListEmployee);
+//    Employee* auxEmp;
+//    FILE* f;
+//
+//    if(pArrayListEmployee!=NULL){
+//        if(!utn_getDescripcion(pathIngresado, 128,"Ingrese el path del archivo .bin que desea guardar: ","\nError. Dato ingresado no valido. Reingrese dato \n",5)){
+//            f=fopen(pathIngresado,"rb");
+//            if(f!=NULL){
+//                printf("Cuidado el archivo %s existe y se va a sobrescribir\n",pathIngresado);
+//                utn_getNumero(&confirma,"[1] Confirmar [2] Cancelar\n","\nError dato no valido\n",1,2,3);
+//            }
+//            fclose(f);
+//            if(confirma==2){
+//                printf("Save as binary cancelado\n");
+//                response=1;
+//            }
+//            else if(confirma){
+//                f=fopen(pathIngresado,"wb");
+//                if(f==NULL){
+//                    printf("No se pudo abrir el archivo\n");
+//                }
+//                else{
+//                    for(int i=0;i<len;i++){
+//                        auxEmp=(Employee*)ll_get(pArrayListEmployee,i);
+//                        if(auxEmp!=NULL){
+//                            cant=fwrite(auxEmp,sizeof(Employee),1,f);
+//                            if(cant<1){
+//                                response=1;
+//                                break;
+//                            }
+//                            response=0;
+//                        }
+//                    }
+//                }
+//            }
+//            fclose(f);
+//        }
+//    }
+//    return response;
 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    int response=-1;
+    char pathIngresado[128];
     int auxId;
     char auxNombre[128];
     int auxHoras;
     float auxSueldo;
+    int confirma=1;
     int len=ll_len(pArrayListEmployee);
     Employee* auxEmp=NULL;
     FILE* f=NULL;
 
-    if(path!=NULL && pArrayListEmployee!=NULL){
-    	f=fopen(path,"w");
-    	if(f!=NULL){
-    		response=0;
-    		for(int i=0;i<len;i++){
-    			auxEmp=(Employee*)ll_get(pArrayListEmployee,i);
-    			if(auxEmp!=NULL){
-    				if(!employee_getId(auxEmp,&auxId) &&
-    				   !employee_getNombre(auxEmp,auxNombre) &&
-					   !employee_getHorasTrabajadas(auxEmp,&auxHoras) &&
-    				   !employee_getSueldo(auxEmp,&auxSueldo)){
-    						fprintf(f,"%d,%s,%d,%f\n",auxId,auxNombre,auxHoras,auxSueldo);
-    						response=0;
+    if(pArrayListEmployee!=NULL){
+        if(!utn_getDescripcion(pathIngresado, 128,"Ingrese el path del archivo .bin que desea guardar: ","\nError. Dato ingresado no valido. Reingrese dato \n",5)){
+            f=fopen(pathIngresado,"r");
+            if(f!=NULL){
+                printf("Cuidado el archivo %s existe y se va a sobrescribir\n",pathIngresado);
+                utn_getNumero(&confirma,"[1] Confirmar [2] Cancelar\n","\nError dato no valido\n",1,2,3);
+            }
+            fclose(f);
+            if(confirma==2){
+                printf("Save as binary cancelado\n");
+                response=1;
+            }
+            else if(confirma){
+                f=fopen(pathIngresado,"w");
+                if(f==NULL){
+                    printf("No se pudo abrir el archivo\n");
+                }
+                else{
+                    for(int i=0;i<len;i++){
+                        auxEmp=(Employee*)ll_get(pArrayListEmployee,i);
+                        if(auxEmp!=NULL){
+                            if(!employee_getId(auxEmp,&auxId) &&
+                               !employee_getNombre(auxEmp,auxNombre) &&
+                               !employee_getHorasTrabajadas(auxEmp,&auxHoras) &&
+                               !employee_getSueldo(auxEmp,&auxSueldo)){
+                                    fprintf(f,"%d,%s,%d,%f\n",auxId,auxNombre,auxHoras,auxSueldo);
+                                    response=0;
+                            }
+                        }
                     }
-    			}
-    		}
-        	fclose(f);
-    	}
+                }
+            }
+        }
+        fclose(f);
     }
     return response;
 }
@@ -293,33 +367,49 @@ int controller_saveAsText(char* path , LinkedList* pArrayListEmployee)
  * \return int
  *
  */
-int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee)
+int controller_saveAsBinary(LinkedList* pArrayListEmployee)
 {
     int response=-1;
+    char pathIngresado[128];
     int cant;
+    int confirma=1;
     int len=ll_len(pArrayListEmployee);
     Employee* auxEmp;
     FILE* f;
 
-    if(pArrayListEmployee!= NULL && path != NULL ){
-        f =fopen(path,"wb");
-        if(f==NULL){
-            printf("Ocurrio un problema\n");
-        }
-        else{
-			for(int i=0;i<len;i++){
-                auxEmp=(Employee*)ll_get(pArrayListEmployee,i);
-                if(auxEmp!=NULL){
-                    cant=fwrite(ll_get(pArrayListEmployee,i),sizeof(Employee),1,f);
-                    if(cant<1){
-                        response=1;
-                        break;
-                    }
-                    response=0;
+    if(pArrayListEmployee!=NULL){
+        if(!utn_getDescripcion(pathIngresado, 128,"Ingrese el path del archivo .bin que desea guardar: ","\nError. Dato ingresado no valido. Reingrese dato \n",5)){
+            f=fopen(pathIngresado,"rb");
+            if(f!=NULL){
+                printf("Cuidado el archivo %s existe y se va a sobrescribir\n",pathIngresado);
+                utn_getNumero(&confirma,"[1] Confirmar [2] Cancelar\n","\nError dato no valido\n",1,2,3);
+            }
+            fclose(f);
+            if(confirma==2){
+                printf("Save as binary cancelado\n");
+                response=1;
+            }
+            else if(confirma){
+                f=fopen(pathIngresado,"wb");
+                if(f==NULL){
+                    printf("No se pudo abrir el archivo\n");
                 }
-			}
+                else{
+                    for(int i=0;i<len;i++){
+                        auxEmp=(Employee*)ll_get(pArrayListEmployee,i);
+                        if(auxEmp!=NULL){
+                            cant=fwrite(auxEmp,sizeof(Employee),1,f);
+                            if(cant<1){
+                                response=1;
+                                break;
+                            }
+                            response=0;
+                        }
+                    }
+                }
+            }
+            fclose(f);
         }
-        fclose(f);
     }
     return response;
 }
